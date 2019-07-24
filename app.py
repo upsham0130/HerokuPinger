@@ -1,4 +1,7 @@
 import time, threading, http.client, json
+from flask import Flask
+
+app = Flask(__name__)
 
 WAIT_SECONDS = 300
 connStrings = ['mm19bot.herokuapp.com', 'mm19survey.herokuapp.com', 'sadhanahelperapi.herokuapp.com', '']
@@ -14,10 +17,11 @@ def makeConn(connString):
     conn.close()
     threading.Timer(WAIT_SECONDS, index).start()
 
+@app.route('/')
 def index():
     makeConn(connStrings[0])
     makeConn(connStrings[1])
     makeConn(connStrings[2])
 
 if __name__ == '__main__':
-    index()
+    app.run()
