@@ -1,7 +1,7 @@
 import time, threading, http.client, json
 
 WAIT_SECONDS = 300
-connStrings = ['mm19bot.herokuapp.com', 'mm19survey.herokuapp.com', '', '']
+connStrings = ['mm19bot.herokuapp.com', 'mm19survey.herokuapp.com', 'sadhanahelperapi.herokuapp.com', '']
 
 def makeConn(connString):
     conn = http.client.HTTPSConnection(connString)
@@ -17,6 +17,7 @@ def makeConn(connString):
 def index():
     makeConn(connStrings[0])
     makeConn(connStrings[1])
+    makeConn(connStrings[2])
 
 if __name__ == '__main__':
     index()
