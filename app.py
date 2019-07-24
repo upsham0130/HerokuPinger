@@ -22,6 +22,7 @@ def index():
     makeConn(connStrings[0])
     makeConn(connStrings[1])
     makeConn(connStrings[2])
+    return ""
 
 if __name__ == '__main__':
     app.run()
